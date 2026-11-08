@@ -1,4 +1,4 @@
-"""Proof that a HubSpot -> QuickBooks Online sync can be made exactly-once across crashes."""
+"""Proof that a HubSpot -> QuickBooks Online sync can be made idempotent across crashes."""
 
 from .auth import AuthLockedOut, Authenticator, TokenStore
 from .client import ProjectsApiUnavailable, QboClient, QboRejected, UnknownOutcome

@@ -1,7 +1,7 @@
 """A QuickBooks Online stand-in on a real socket, encoding the documented behaviours.
 
 This is not a generic mock. It models the specific things QBO does that
-decide whether an integration is exactly-once or merely usually-once:
+decide whether an integration is idempotent or merely usually correct:
 
 * **requestid replay** on REST creates: a second request with the same
   ``requestid`` for the same company returns the *original* response --

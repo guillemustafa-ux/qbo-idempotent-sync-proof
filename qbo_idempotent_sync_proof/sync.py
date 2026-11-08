@@ -1,4 +1,4 @@
-"""The sync under test: one "deal paid" webhook, four exactly-once writes.
+"""The sync under test: one "deal paid" webhook, four idempotent writes.
 
 One entry point, ``apply(webhook)``, safe to call any number of times, from
 any process, in any order of delivery. It decides what is left to do from
@@ -113,7 +113,7 @@ class SyncEngine:
         return self.sync(deal_id)
 
     def sync(self, deal_id: str) -> Deal:
-        """Complete whatever is left for one deal, in order, exactly once."""
+        """Complete whatever is left for one deal, in order, skipping finished steps."""
         try:
             deal = self.ledger.get_deal(deal_id)
             if deal.qbo_customer_id is None:

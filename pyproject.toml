@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "qbo-idempotent-sync-proof"
 version = "1.0.0"
-description = "Runnable proof that a HubSpot -> QuickBooks Online sync can be made exactly-once across crashes, and honest about QBO Projects"
+description = "Runnable proof that a HubSpot -> QuickBooks Online sync can be made idempotent across crashes, and honest about QBO Projects"
 readme = "README.md"
 requires-python = ">=3.10"
 # No runtime dependencies on purpose: the fake QBO, the transport, the OAuth
